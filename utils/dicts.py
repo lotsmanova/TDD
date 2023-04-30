@@ -6,9 +6,11 @@ def get_val(collection, key, default="git"):
     :param default: если ключ не существует, значение default
     :return: значение из словаря
     '''
+    key_list = []
     if len(collection) > 0:
-        for k in collection:
-            if k == key:
-                return collection[key]
-            return default
+        for k in collection.keys():
+            key_list.append(k)
+        if key in key_list:
+            return collection[key]
+        return default
     return default
